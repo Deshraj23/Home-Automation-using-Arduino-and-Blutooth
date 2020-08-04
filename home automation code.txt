@@ -1,0 +1,17 @@
+ 
+//home automation Code:
+////////////////////////////////////////////////////////////////////////////
+byte datarx;          //Defining Variable datarx where data is stored from phone
+int tubelight=13;   //Arduino pin on which Device is connected
+void setup(){
+Serial.begin(9600);      //for Serial Communication and to set baud rate
+pinMode(tubelight,OUTPUT);}    //defining weather the pin will be used as Input or Output
+void loop() {
+if(Serial.available()>0)    // See if there is any data received on serial port
+ {datarx=Serial.read(); } // transfer the data from serial buffer to datarx
+  if(datarx=='a')                 // check if data in datarx is character 'a' 
+  {digitalWrite(tubelight,HIGH);}  // send signal of 5v on pin 13
+if(datarx=='b')                //// check if data in datarx is character 'b'
+{digitalWrite(tubelight,LOW);}   // send signal of 0v on pin 13
+}
+/////////////////////Keep up the Good Work: Deshbot///////////////////////
